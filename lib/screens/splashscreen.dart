@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:islamy/ui/homescreen.dart';
+import 'package:islamy/commen/imagess.dart';
+import 'package:islamy/screens/homescreen.dart';
 
 class Splashscreen extends StatelessWidget {
   const Splashscreen({super.key});
@@ -9,9 +10,9 @@ class Splashscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future.delayed(Duration(seconds: 2),(){
-      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Homescreen()));});
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>Homescreen()));});
     return  Container(
-      child: Image.asset("assets/images/splash.png"),
+      child: Image.asset( Imagess.splashscreen),
     );
   }
 }
