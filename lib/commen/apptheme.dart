@@ -21,6 +21,11 @@ class Apptheme {
     primaryColor: Appcolors.Lightmain,
     canvasColor: Appcolors.Lightmain,
     textTheme: const TextTheme(
+      titleSmall:TextStyle(
+         fontSize: 20,
+        fontWeight: FontWeight.w400,
+        color: Colors.black,
+      ) ,
       titleMedium: TextStyle(
         fontSize: 25,
         fontWeight: FontWeight.w400,
