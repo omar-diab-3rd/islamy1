@@ -26,6 +26,11 @@ class Apptheme {
         fontWeight: FontWeight.w400,
         color: Colors.black,
       ) ,
+      titleLarge:const TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.w400,
+        color: Colors.white,
+      ), 
       titleMedium: TextStyle(
         fontSize: 25,
         fontWeight: FontWeight.w400,
@@ -71,13 +76,24 @@ class Apptheme {
     scaffoldBackgroundColor: Colors.transparent,
     primaryColor: Appcolors.darkmain,
      canvasColor: Appcolors.darkmain,
-      textTheme: const TextTheme(
+      textTheme:  TextTheme(
+      titleLarge:const TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.w400,
+        color: Colors.white,
+      ), 
       titleMedium: TextStyle(
         fontSize: 25,
         fontWeight: FontWeight.w400,
         color: Colors.white,
-      )
+      ),
+       titleSmall:TextStyle(
+         fontSize: 20,
+        fontWeight: FontWeight.w400,
+        color: Appcolors.bottomdark,
+      ) ,
     ),
+    
     appBarTheme:const AppBarTheme(
       titleTextStyle: TextStyle(
         fontSize: 30,

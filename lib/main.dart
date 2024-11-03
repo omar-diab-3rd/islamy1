@@ -7,7 +7,7 @@ import 'package:islamy/screens/splashscreen.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    theme: Apptheme.lightTheme,
+    theme: Apptheme.darkTheme,
     home: Splashscreen(),
   )   
   );

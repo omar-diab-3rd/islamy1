@@ -1,29 +1,22 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:islamy/commen/imagess.dart';
-import 'package:islamy/ui/bottom%20navigate%20screen/quraan.dart';
+import 'package:islamy/ui/bottom%20navigate%20screen/ahadeece.dart';
 
-class Surascreen extends StatefulWidget {
-  Surascreen({super.key , required this.name , required this.number});
+class hadeecescreen extends StatelessWidget {
+  hadeecescreen({super.key,required this.name,required this.content});
   String name;
-  int number;
+  String content;
 
-  @override
-  State<Surascreen> createState() => _SurascreenState();
-}
-
-class _SurascreenState extends State<Surascreen> {
-  List<String>content=[];
-
-  @override
+   @override
   Widget build(BuildContext context) {
-    if(content.isEmpty)loadsura(widget.number);
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage( Theme.of(context).colorScheme.brightness==Brightness.light?
+        image: DecorationImage(
+          image: AssetImage( Theme.of(context).colorScheme.brightness==Brightness.light?
          Imagess.bg3
-         :Imagess.DARKbg),fit: BoxFit.cover)
+         :Imagess.DARKbg)
+         ,fit: BoxFit.cover)
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -50,37 +43,28 @@ class _SurascreenState extends State<Surascreen> {
           ),
           child: Column(
             children: [
-              Text(widget.name ,
+              Text(name ,
               style: Theme.of(context).textTheme.titleMedium
                ),
               Divider(    
                 indent: MediaQuery.of(context).size.width*.1,
                 endIndent: MediaQuery.of(context).size.width*.1,
                 
-              ),
-              content.isEmpty ?
-              const Expanded(child: Center(child: CircularProgressIndicator()))
-              :Expanded(child: ListView.builder(
-                itemBuilder:(context,index)=> Text(content[index],
+              ), 
+              
+               Expanded(
+                 child: SingleChildScrollView(
+                   child: Text( 
+                    content, 
+                    style: Theme.of(context).textTheme.titleSmall,
+                    textAlign: TextAlign.center,),
+                 ),
+               ),
                 
-                style: Theme.of(context).textTheme.titleSmall,
-                textAlign: TextAlign.center,),
-                itemCount: content.length,))
             ],
           ),
         ),
       )
     );
   }
-
-  Future<void> loadsura(int index)async{
-      rootBundle.loadString("assets/quraan/${index+1}.txt").then((Value){
-      content=Value.split("\n");
-    setState(() {
-      
-    });
-      },);
-  
-
   }
-}
