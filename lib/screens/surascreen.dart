@@ -74,7 +74,6 @@ class _SurascreenState extends State<Surascreen> {
   Future<void> loadsura(int index)async{
       rootBundle.loadString("assets/quraan/${index+1}.txt").then((Value){
       content=Value.split("\n");
-      Future.delayed(const Duration(seconds: 200));  
     setState(() {
       
     });
