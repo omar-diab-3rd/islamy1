@@ -1,8 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islamy/commen/imagess.dart';
-import 'package:islamy/ui/bottom%20navigate%20screen/quraan.dart';
+ 
 
 class Surascreen extends StatefulWidget {
   Surascreen({super.key , required this.name , required this.number});
@@ -31,7 +33,7 @@ class _SurascreenState extends State<Surascreen> {
           title: const Text("Islamy"),
           leading: IconButton(onPressed: (){Navigator.of(context).pop();}, 
           icon: const Icon(Icons.arrow_back),
-          color: const Color.fromARGB(255, 168, 65, 27),),
+          color: Theme.of(context).colorScheme.onSecondary),
           
         ),
         body: Container(
@@ -59,23 +61,37 @@ class _SurascreenState extends State<Surascreen> {
                 
               ),
               content.isEmpty ?
-              const Expanded(child: Center(child: CircularProgressIndicator()))
-              :Expanded(child: ListView.builder(
-                itemBuilder:(context,index)=> Text(content[index],
-                
-                style: Theme.of(context).textTheme.titleSmall,
-                textAlign: TextAlign.center,),
-                itemCount: content.length,))
+               Expanded(child: Center(child: CircularProgressIndicator(
+                color: Theme.of(context).colorScheme.onSecondary ,
+              )))
+              :Expanded(child: ListView(
+                children: [
+                  RichText(
+                    textDirection: TextDirection.rtl,
+                    text: TextSpan( 
+                    style: Theme.of(context).textTheme.titleSmall,
+                    children: content.map(
+                      (e) => TextSpan( children: [
+                        TextSpan( text: e),
+                        TextSpan( text: ("  (${content.indexOf(e)+1})   "))
+                      ],
+                      )
+                      
+                      ) .toList()
+                    )
+                    
+                    )
+                ],
+                 ))
             ],
           ),
         ),
       )
     );
   }
-
   Future<void> loadsura(int index)async{
       rootBundle.loadString("assets/quraan/${index+1}.txt").then((Value){
-      content=Value.split("\n");
+      content=Value.split("\n").where((element) =>element.trim().isNotEmpty,).toList();
     setState(() {
       
     });
