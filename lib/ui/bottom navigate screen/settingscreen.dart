@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:islamy/commen/appcolors.dart';
 import 'package:islamy/mangement.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Settingscreen extends StatefulWidget {
   const Settingscreen({super.key});
@@ -21,7 +22,7 @@ class _SettingscreenState extends State<Settingscreen> {
       child: Column(
         children: [
           SwitchListTile(
-            title: Text(" ThemeMode ", style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 20),) , 
+            title: Text(AppLocalizations.of(context)!.thememode, style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 20),) , 
             trackColor:const WidgetStatePropertyAll(Colors.grey),
             thumbColor: WidgetStatePropertyAll(Theme.of(context).colorScheme.onSecondary),
             value: provider.isdark, 
@@ -31,7 +32,7 @@ class _SettingscreenState extends State<Settingscreen> {
             
             }),
         ListTile(
-          title: Text( " Language ", 
+          title: Text( AppLocalizations.of(context)!.language, 
           style: Theme.of(context).
           textTheme.
           titleMedium!.copyWith(fontSize: 20),),
@@ -43,7 +44,7 @@ class _SettingscreenState extends State<Settingscreen> {
             ),
             child: DropdownButton<String>(
               underline: Container(),
-              value: "en",
+              value: provider.localcode,
               borderRadius: BorderRadius.circular(40),
               items: [
                  DropdownMenuItem(
@@ -62,28 +63,28 @@ class _SettingscreenState extends State<Settingscreen> {
                   titleSmall,),
                   ),
                    DropdownMenuItem(
-                  value: "sp",
+                  value: "es",
                   child: Text("Spanish",
                   style: Theme.of(context).
                   textTheme.
                   titleSmall,),
                   ),
                    DropdownMenuItem(
-                  value: "Gr",
+                  value: "de",
                   child: Text("German",
                   style: Theme.of(context).
                   textTheme.
                   titleSmall,),
                   ),
                    DropdownMenuItem(
-                  value: "chi",      
+                  value: "zh",      
                   child: Text("Chinese",
                   style: Theme.of(context).
                   textTheme.
                   titleSmall,),
                   ),
                    DropdownMenuItem(
-                  value: "kr",
+                  value: "ko",
                   child: Text("Korean",
                   style: Theme.of(context).
                   textTheme.
@@ -96,7 +97,11 @@ class _SettingscreenState extends State<Settingscreen> {
                   textTheme.
                   titleSmall,),
                   ),
-              ], onChanged: (value){}),
+              ], onChanged: (value){
+               if(value!=null) {
+                provider. changelocal(value);
+                }
+              }),
           ),
         )
         ],

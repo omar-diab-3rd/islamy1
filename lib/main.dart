@@ -3,7 +3,8 @@ import 'package:islamy/commen/apptheme.dart';
 import 'package:islamy/mangement.dart';
 import 'package:islamy/screens/splashscreen.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 void main() {
    
   runApp( 
@@ -27,10 +28,13 @@ class _MyappState extends State<Myapp> {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
+   localizationsDelegates: AppLocalizations.localizationsDelegates,
+  supportedLocales: AppLocalizations.supportedLocales,
     debugShowCheckedModeBanner: false,
     themeMode: Provider.of<ThemeProvider>(context).appthememode,
     theme: Apptheme.lightTheme,
     darkTheme: Apptheme.darkTheme,
+    locale: Locale(Provider.of<ThemeProvider>(context).localcode),
     home: Splashscreen(),
   );
   }

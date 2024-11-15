@@ -12,7 +12,11 @@ class Splashscreen extends StatelessWidget {
     Future.delayed(Duration(seconds: 2),(){
       Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>Homescreen()));});
     return  Container(
-      child: Image.asset( Imagess.splashscreen),
+      child: Image(image: AssetImage(Theme.of(context).colorScheme.brightness==Brightness.light?
+      Imagess.splashscreen:
+      Imagess.Darksplash
+      ))
+       
     );
   }
 }

@@ -9,13 +9,13 @@ class Apptheme {
     colorScheme: ColorScheme(
       brightness: Brightness.light, 
       primary: Appcolors.Lightmain, 
-      onPrimary: Colors.white,
+      onPrimary: Appcolors.Lightmain,
        secondary: Colors.white, 
        onSecondary: Colors.white, 
        error: Colors.red,
       onError: Colors.white, 
       surface: Colors.white, 
-      onSurface: Colors.white
+      onSurface: Appcolors.Lightmain,
       ),
     scaffoldBackgroundColor: Colors.transparent,
     primaryColor: Appcolors.Lightmain,
@@ -64,14 +64,14 @@ class Apptheme {
     ),
      colorScheme: ColorScheme(
       brightness: Brightness.dark, 
-      primary: Appcolors.darkmain, 
+      primary: Appcolors.bottomdark, 
       onPrimary: Appcolors.darkmain,
        secondary: Colors.white, 
        onSecondary: Colors.white, 
        error: Colors.red,
       onError: Colors.white, 
       surface: Colors.white, 
-      onSurface: Colors.white
+      onSurface: Appcolors.bottomlight
       ),
     scaffoldBackgroundColor: Colors.transparent,
     primaryColor: Appcolors.darkmain,
@@ -80,7 +80,7 @@ class Apptheme {
       titleLarge:const TextStyle(
         fontSize: 25,
         fontWeight: FontWeight.w400,
-        color: Colors.white,
+        color: Colors.black,
       ), 
       titleMedium: TextStyle(
         fontSize: 25,
