@@ -76,7 +76,7 @@ class _QuraanScreenState extends State<QuraanScreen> {
                     Expanded(
                       child: Text(
                         num [index].toString(),
-                        style: Theme.of(context).textTheme.titleSmall,
+                        style: Theme.of(context).textTheme.titleMedium,
                         textAlign: TextAlign.center,
                       ),
                     ),

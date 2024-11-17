@@ -5,6 +5,7 @@ import 'package:islamy/commen/imagess.dart';
 
 class SebehaScreen extends StatefulWidget {
   SebehaScreen({super.key});
+   
 
   @override
   State<SebehaScreen> createState() => _SebehaScreenState();
@@ -12,7 +13,6 @@ class SebehaScreen extends StatefulWidget {
 
 class _SebehaScreenState extends State<SebehaScreen> {
   List<String>s=["استغفر الله","سبحان الله","الحمد لله","الله اكبر", ];
-
   int count=0;
   int x=0;
   double a=0;  
@@ -20,6 +20,9 @@ class _SebehaScreenState extends State<SebehaScreen> {
 
   @override
   Widget build(BuildContext context) {
+  double width=MediaQuery.of(context).size.width;
+  double height=MediaQuery.of(context).size.height;
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 200),
       child: Column(
@@ -59,8 +62,8 @@ class _SebehaScreenState extends State<SebehaScreen> {
           Text("عدد التسبيحات",
           style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 30),),
           Container(
-            width: 60,
-            height: 70,
+            width: width*.15,
+            height: height*.08,
             padding: EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.onPrimary,
@@ -75,8 +78,8 @@ class _SebehaScreenState extends State<SebehaScreen> {
           ElevatedButton(
             style:ElevatedButton.styleFrom(
             backgroundColor:  Theme.of(context).colorScheme.primary,
-            maximumSize: const Size(200, 50),
-            minimumSize: const Size(200, 50)
+            maximumSize:  Size(width*.4, height*.06),
+            minimumSize:  Size(width*.4, height*.06)
              ),
             onPressed: click,
             child:Text( tasbeh,
