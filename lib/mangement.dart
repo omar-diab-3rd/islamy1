@@ -23,24 +23,18 @@ class ThemeProvider with ChangeNotifier
   }
 
   void savemode(ThemeMode theme)async{
+    appthememode=theme;
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    if(ThemeMode == ThemeMode.light){
-    prefs.setString("theme", "light");
-    }
-    else
-     prefs.setString("theme", "dark");
-      
-  }
+    prefs.setBool("dark", isdark);}
+    
   void getTheme()async{
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    String c =prefs.getString("theme")?? "light";
+    bool? c =prefs.getBool("dark");
 
-    if(c=="light"){
-      appthememode==ThemeMode.light;
+    if(c!=null){
+      appthememode==c?ThemeMode.light:ThemeMode.dark;
     }
-    else{
-    appthememode=ThemeMode.dark;
-    }
+    
     notifyListeners();
   }
 
